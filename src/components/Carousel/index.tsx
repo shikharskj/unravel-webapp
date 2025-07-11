@@ -9,8 +9,7 @@ type CarouselProps = {
 const Carousel = React.memo(({ items, type }: CarouselProps) => {
   const [index, setIndex] = useState(0); // Current media index
   const [loading, setLoading] = useState(true); // Shimmer placeholder
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isVisible, setIsVisible] = useState(false); // For autoplay control
+  const [isVisible, setIsVisible] = useState(false); // Visibility for lazy autoplay
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -56,27 +55,31 @@ const Carousel = React.memo(({ items, type }: CarouselProps) => {
       <div className="aspect-video">
         {loading ? (
           <div className="w-full h-full bg-gray-200 animate-pulse rounded-xl" />
-        ) : type === "videos" ? (
-          <video
-            ref={videoRef}
-            src={items[index]}
-            autoPlay // ← ensures autoplay on mount
-            muted // ← required for autoplay on most browsers
-            playsInline
-            controls
-            preload="metadata"
-            onEnded={handleVideoEnded}
-            className="w-full h-full object-cover rounded-xl transition-opacity duration-500"
-          />
+        ) : isVisible ? (
+          type === "videos" ? (
+            <video
+              ref={videoRef}
+              src={items[index]}
+              autoPlay
+              muted
+              playsInline
+              controls
+              preload="metadata"
+              onEnded={handleVideoEnded}
+              className="w-full h-full object-cover rounded-xl transition-opacity duration-500"
+            />
+          ) : (
+            <img
+              src={items[index]}
+              srcSet={`${items[index]}?w=480 480w, ${items[index]}?w=768 768w, ${items[index]}?w=1024 1024w`}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              alt={`Media ${index + 1}`}
+              loading="lazy"
+              className="w-full h-full object-cover rounded-xl transition-opacity duration-500"
+            />
+          )
         ) : (
-          <img
-            src={items[index]}
-            srcSet={`${items[index]}?w=480 480w, ${items[index]}?w=768 768w, ${items[index]}?w=1024 1024w`}
-            sizes="(max-width: 768px) 100vw, 50vw"
-            alt={`Media ${index + 1}`}
-            loading="lazy"
-            className="w-full h-full object-cover rounded-xl transition-opacity duration-500"
-          />
+          <div className="w-full h-full bg-black/10 rounded-xl" />
         )}
       </div>
 
