@@ -1,7 +1,7 @@
 import MOCK_DATA from "../mock_data.json"; // adjust path accordingly
 import type { HotelInfo, MockData, Room } from "../types";
 
-const typedMockData = MOCK_DATA as MockData;
+const typedMockData = MOCK_DATA as unknown as MockData;
 
 export const fetchMockRooms = async (
   page: number,
