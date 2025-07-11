@@ -16,13 +16,16 @@ This project is a modern, responsive hotel listing web app built with React + Ty
 
 💬 Optimized with custom throttle hooks and memoized components
 
-📁 Project Structure
-bash
-Copy
-Edit
-`
+# Screenshot -
 
-# Folder Structure -
+<img width="1898" height="986" alt="Image" src="https://github.com/user-attachments/assets/2726a604-6aeb-4f88-8e35-86af1b7002de" />
+
+# Mobile Responsive -
+
+<img width="428" height="934" alt="Image" src="https://github.com/user-attachments/assets/caee20d4-3321-4264-9eac-d03729566362" />
+
+
+# 📁 Project Structure -
 ### src/
 
 ├── components/         # All reusable components like RoomCard, Carousel, Tabs, etc.
@@ -95,7 +98,7 @@ Local useState + useEffect used for fetching & rendering.
 
 useRef and useCallback for scroll locking and memoization.
 
-### ⚙️ Performance Optimizations
+# ⚙️ Performance Optimizations
 #### ✅ Custom Throttle Hook (useThrottle)
 Prevents excessive calls during scroll detection.
 
