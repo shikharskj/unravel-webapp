@@ -1,7 +1,13 @@
 # 🏨 Hotel Listing App
+
 This project is a modern, responsive hotel listing web app built with React + TypeScript. It features an infinite scroll room list, expandable variants, a media carousel (images/videos), and smooth UI/UX enhancements including skeleton loaders and debounced loading strategies.
 
-🚀 Features
+# 🚀 **Live Demo:**  
+
+## 👉 [skj-hotel-room-listing.netlify.app/](https://skj-hotel-room-listing.netlify.app/)
+
+
+# 🔥 Features
 🔍 Hotel Details View with rich media (images/videos)
 
 🪄 Infinite Scroll Room List (pagination-based lazy loading)
