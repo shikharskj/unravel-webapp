@@ -98,7 +98,7 @@ Local useState + useEffect used for fetching & rendering.
 
 useRef and useCallback for scroll locking and memoization.
 
-### ⚙️ Performance Optimizations
+# ⚙️ Performance Optimizations
 #### ✅ Custom Throttle Hook (useThrottle)
 Prevents excessive calls during scroll detection.
 
